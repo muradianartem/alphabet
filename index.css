@@ -1,0 +1,82 @@
+body{
+    margin: 1px;
+    padding: 0;
+}
+
+main{
+    margin: 0 150px;
+}
+
+.navigationList {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+    border-bottom: 1px solid #aaaaaa;
+    font-size: 26px;
+    color: #004fff;
+}
+
+.navigationList li:hover {
+    color: #009fff;
+    cursor: pointer;
+}
+
+.notInList {
+    color: #aaaaaa;
+}
+
+.navigationList .notInList:hover {
+    cursor: auto;
+    color: #aaaaaa;
+}
+
+.addedList {
+    list-style-type: none;
+    border: 1px solid #009fff;
+}
+
+.addedList span{
+    color: #004fff;
+    font-size: 24px;
+}
+
+.listOfBooks {
+
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 30px;
+}
+
+.addedList{
+    margin: 0;
+    padding: 10px 25px;
+}
+
+html{
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    grid-gap: 100px;
+}
+
+.inActive a{
+    color: #aaaaaa;
+}
+
+a{
+    text-decoration: none;
+    color: #004fff;
+
+}
+
+a:visited{
+    color: #004fff;
+}
