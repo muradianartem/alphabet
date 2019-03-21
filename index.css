@@ -17,6 +17,19 @@ main{
     color: #004fff;
 }
 
+nav{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: baseline;
+    grid-gap: 100px;
+}
+
+.refreshed{
+    color: #004fff;
+    font-size: 32px;
+    cursor: pointer;
+}
+
 .navigationList li:hover {
     color: #009fff;
     cursor: pointer;

@@ -4,7 +4,8 @@ const uniEndA = 91;
 const elements = {
     navigate: document.querySelector('.navigationList'),
     newList: document.querySelector('.listOfBooks'),
-    footerList: document.querySelector('.footerList')
+    footerList: document.querySelector('.footerList'),
+    refresh: document.querySelector('.refreshed')
 };
 
 const listOfBooks = [
@@ -126,7 +127,7 @@ function find(element) {
 };
 
 function renderLetter(array, letter) {
-    const newDOMElement = `<ul class="addedList letter${letter}">  <span> ${letter}</span>
+    const newDOMElement = `<ul class="addedList" id=${letter}>  <span> ${letter}</span>
 ${array.map((el) => `<li> ${el}</li>`).join('')} </ul>`;
     elements.newList.insertAdjacentHTML("beforeend", newDOMElement);
 }
@@ -141,7 +142,7 @@ window.onscroll = function() {
     }
 };
 
-
+let m = -1;
 
 let arrAlphabet = [...getAlphabet()];
 
@@ -161,16 +162,17 @@ aBook.forEach( (element, index) => {
         document.querySelector(`.navListB.${arrAlphabet[index]}`).classList.add('inActive');
         return;
     } else {
-        const newDOMElement = `<ul class="addedList" id="${arrAlphabet[index]}">  <span> ${arrAlphabet[index]}</span>
-${element.map((el) => `<li> ${el}</li>`).join('')} </ul>`;
-        elements.newList.insertAdjacentHTML("beforeend", newDOMElement);
+        renderLetter(element, arrAlphabet[index]);
     }
 });
 
 elements.navigate.addEventListener('click', (e)=> {
     if (e.target.matches('.navList')){
-
-        renderLetter(aBook[arrAlphabet.indexOf(e.target.classList[1])], e.target.classList[1]);
+        document.getElementById(e.target.classList[1]).style.order = m--;
     }
 });
 
+elements.refresh.addEventListener('click', () => {
+    let list = document.querySelectorAll('.addedList');
+    list.forEach((el) => el.style.order = 0);
+});
