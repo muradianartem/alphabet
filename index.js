@@ -120,11 +120,10 @@ const getAlphabet = () => {
 };
 
 function find(element) {
-    let arrR =  listOfBooks.filter((e) => {
+    return listOfBooks.filter((e) => {
         return e.replace(/\s+/g,'').toUpperCase()[0] === element;
     });
-    return arrR;
-};
+}
 
 function renderLetter(array, letter) {
     const newDOMElement = `<ul class="addedList" id=${letter}>  <span> ${letter}</span>
@@ -149,18 +148,12 @@ let arrAlphabet = [...getAlphabet()];
 elements.navigate.innerHTML = arrAlphabet.map((el) => `<li class="navList ${el}"> ${el}</li>`).join('');
 elements.footerList.innerHTML = arrAlphabet.map((el) => `<li class="navListB ${el}"> <a href="#${el}"> ${el} </a></li>`).join('');
 
-console.log(elements.navigate);
-
-
-let aBook =[];
-
-aBook = arrAlphabet.map( (el) => find(el));
+let aBook = arrAlphabet.map( (el) => find(el));
 
 aBook.forEach( (element, index) => {
     if (element.length === 0) {
         document.querySelector(`.${arrAlphabet[index]}`).classList.add('notInList');
         document.querySelector(`.navListB.${arrAlphabet[index]}`).classList.add('inActive');
-        return;
     } else {
         renderLetter(element, arrAlphabet[index]);
     }
