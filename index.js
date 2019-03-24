@@ -5,7 +5,9 @@ const elements = {
     navigate: document.querySelector('.navigationList'),
     newList: document.querySelector('.listOfBooks'),
     footerList: document.querySelector('.footerList'),
-    refresh: document.querySelector('.refreshed')
+    refresh: document.querySelector('.refreshed'),
+    header: document.querySelector('.header'),
+    btnToggle: document.querySelector('.btnToggle')
 };
 
 const listOfBooks = [
@@ -135,37 +137,53 @@ ${array.map((el) => `<li> ${el}</li>`).join('')} </ul>`;
 
 window.onscroll = function() {
     if (window.pageYOffset !== 0) {
-        elements.navigate.classList.add("scrolled");
+        elements.header.classList.add("fixed");
     } else {
-        elements.navigate.classList.remove("scrolled");
+        elements.header.classList.remove("fixed");
     }
 };
 
-let m = -1;
+// let m = -1;
 
 let arrAlphabet = [...getAlphabet()];
 
-elements.navigate.innerHTML = arrAlphabet.map((el) => `<li class="navList ${el}"> ${el}</li>`).join('');
-elements.footerList.innerHTML = arrAlphabet.map((el) => `<li class="navListB ${el}"> <a href="#${el}"> ${el} </a></li>`).join('');
+elements.navigate.innerHTML = arrAlphabet.map((el) => `<li class="navList ${el}"> <a href="#${el}"> ${el} </a></li>`).join('');
+// elements.footerList.innerHTML = arrAlphabet.map((el) => `<li class="navListB ${el}"> <a href="#${el}"> ${el} </a></li>`).join('');
 
 let aBook = arrAlphabet.map( (el) => find(el));
 
 aBook.forEach( (element, index) => {
     if (element.length === 0) {
         document.querySelector(`.${arrAlphabet[index]}`).classList.add('notInList');
-        document.querySelector(`.navListB.${arrAlphabet[index]}`).classList.add('inActive');
+        // document.querySelector(`.navListB.${arrAlphabet[index]}`).classList.add('inActive');
     } else {
         renderLetter(element, arrAlphabet[index]);
     }
 });
 
-elements.navigate.addEventListener('click', (e)=> {
-    if (e.target.matches('.navList')){
-        document.getElementById(e.target.classList[1]).style.order = m--;
-    }
-});
+// elements.navigate.addEventListener('click', (e)=> {
+//
+//     if (e.target.matches('.navList')){
+//         document.getElementById(e.target.classList[1]).style.order = m--;
+//         console.log(e.target.classList[1]);
+//         console.log(e.target.firstChild);
+//     }
+// });
 
 elements.refresh.addEventListener('click', () => {
     let list = document.querySelectorAll('.addedList');
     list.forEach((el) => el.style.order = 0);
 });
+
+elements.btnToggle.addEventListener('click', () =>{
+
+    console.log(elements.btnToggle.classList);
+    if (elements.newList.classList.value === 'listOfBooks pressed') {
+        elements.newList.classList.remove('pressed');
+    } else{
+        elements.newList.classList.add('pressed');
+    }
+});
+
+
+
