@@ -24,6 +24,12 @@ nav{
     grid-gap: 100px;
 }
 
+header{
+    position: sticky;
+    top: 0;
+    background-color: white;
+    opacity: 1;
+}
 .refreshed{
     color: #004fff;
     font-size: 32px;
@@ -100,15 +106,6 @@ a{
 
 a:visited{
     color: #004fff;
-}
-
-nav.fixed{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 0 150px;
-    background-color: yellow;
 }
 
 .btnToggle{
