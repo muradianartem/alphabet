@@ -128,7 +128,7 @@ function find(element) {
 }
 
 function renderLetter(array, letter) {
-    const newDOMElement = `<ul class="addedList" id=${letter}>  <span> ${letter}</span>
+    const newDOMElement = `<ul class="addedList">  <span class="head" id="${letter}"> ${letter}</span>
 ${array.map((el) => `<li> ${el}</li>`).join('')} </ul>`;
     elements.newList.insertAdjacentHTML("beforeend", newDOMElement);
 }
@@ -184,6 +184,51 @@ elements.btnToggle.addEventListener('click', () =>{
         elements.newList.classList.add('pressed');
     }
 });
+
+
+
+
+/*
+const str = "{(sdsfsd({jkf  skdfjsdkfj  )klj}fdl)sf }";
+let arrStr = [];
+
+
+for (let i=0; i < str.length; i++) {
+    if (str[i] === '{' || str[i] === '[' || str[i] === '(') {
+        arrStr.push(str[i])
+    }
+}
+
+for (let i=0; i < str.length; i++) {
+    if (str[i] === '}') {
+        if (arrStr[arrStr.length-1] !== '{'){
+            console.log('error');
+            break;
+        } else{
+            arrStr.splice(arrStr.length-1, 1);
+        }
+    }
+    if (str[i] === ']') {
+        if (arrStr[arrStr.length-1] !== '['){
+            console.log('error');
+            break;
+        } else{
+            arrStr.splice(arrStr.length-1, 1);
+            console.log('ok');
+        }
+        if (str[i] === ')') {
+        if (arrStr[arrStr.length-1] !== '('){
+            console.log('error');
+            break;
+        } else{
+            arrStr.splice(arrStr.length-1, 1);
+            console.log('ok');
+        }
+    }
+}
+*/
+
+
 
 
 

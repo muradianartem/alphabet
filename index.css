@@ -11,8 +11,7 @@ main{
     list-style: none;
     display: flex;
     justify-content: space-around;
-    padding: 20px 0;
-    border-bottom: 1px solid #aaaaaa;
+    padding: 5px 0;
     font-size: 26px;
     color: #004fff;
 }
@@ -22,14 +21,39 @@ nav{
     grid-template-columns: auto 1fr auto;
     align-items: baseline;
     grid-gap: 100px;
+    transition: font-size 1s 1s;
 }
 
 header{
     position: sticky;
     top: 0;
     background-color: white;
+    border-bottom: 1px solid #004fff;
     opacity: 1;
 }
+
+nav.fixed > .navigationList{
+    margin: 0;
+    transition: margin 1s 100ms;
+}
+
+/*
+nav.fixed > .btnToggle{
+    padding: 10px 25px;
+    transition: padding 1s 100ms;
+}
+
+nav.fixed > span{
+    font-size: 20px;
+    transition: font-size 1s 100ms;
+}
+
+nav.fixed > .navigationList{
+    font-size: 16px;
+    transition: font-size 1s 100ms;
+}
+*/
+
 .refreshed{
     color: #004fff;
     font-size: 32px;
@@ -52,7 +76,6 @@ header{
 
 .addedList {
     list-style-type: none;
-    border: 1px solid #009fff;
 }
 
 .addedList span{
@@ -65,7 +88,7 @@ header{
     display: grid;
     grid-template-columns:  minmax(200px, 300px);
     grid-gap: 30px;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .listOfBooks.pressed {
@@ -73,7 +96,7 @@ header{
     display: grid;
     grid-template-columns:  repeat(auto-fill, minmax(200px, 300px));
     grid-gap: 30px;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .addedList{
@@ -109,7 +132,17 @@ a:visited{
 }
 
 .btnToggle{
-    padding: 20px 35px;
+    margin: 5px;
+    padding: 15px 30px;
     background-color: #004fff;
     color: white;
+}
+
+.head::before{
+    display: block;
+    content: " ";
+    margin-top: -90px;
+    height: 90px;
+    visibility: hidden;
+    pointer-events: none;
 }
